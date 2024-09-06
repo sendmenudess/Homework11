@@ -31,15 +31,15 @@ public class Book{
     }
 
     @Override
-    public boolean equals(Object named) {
-        if (this == named) return true;
-        if (named == null || getClass() != named.getClass()) return false;
-        Book book = (Book) named;
-        return Objects.equals(this.named, book.named);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return publicationYear == book.publicationYear && Objects.equals(named, book.named) && Objects.equals(author, book.author);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(named);
+        return Objects.hash(named, publicationYear, author);
     }
 }
